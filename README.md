@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my first time to build a blog by Rails, and this blog is for demo purpose.
 
-Things you may want to cover:
 
-* Ruby version
+### Day 1
 
-* System dependencies
+1. 設定 Rails 運行環境
+2. 建立 myblog 空專案，將 myblog 推至 github
+3. 將 myblog 布署至 Heroku
 
-* Configuration
+### Day 2
 
-* Database creation
+1. 建立 models: Author, Post, Comment
+2. 建立並載入 fixtures
+3. 新增首頁及 About 頁面
 
-* Database initialization
+### References
 
-* How to run the test suite
+[Install Ruby 3.0 · macOS Big Sur or Catalina](https://mac.install.guide/ruby/index.html)
 
-* Services (job queues, cache servers, search engines, etc.)
+[Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html)
 
-* Deployment instructions
+[Getting Started on Heroku with Rails 6.x](https://devcenter.heroku.com/articles/getting-started-with-rails6)
 
-* ...
+[Ruby on Rails: Switch from sqlite3 to Postgres](https://medium.com/@thorntonbrenden/ruby-on-rails-switch-from-sqlite3-to-postgres-590009645c25)
+
+[How to Build a Blog with Ruby on Rails](https://deallen7.medium.com/ruby-on-rails-app-build-blog-3d9975a999ae#aecc)
+
+[為你自己學 Ruby on Rails (電子書)](https://railsbook.tw/)
+
+[Rails models cheatsheet](https://devhints.io/rails-models)
