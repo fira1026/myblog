@@ -1,0 +1,23 @@
+<h1>Create Account</h1>
+<%= form_for @author do |f| %>
+ <p>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+ </p>
+ <p>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+ </p>
+ <p>
+  <%= f.submit 'Comfirm', :onclick => "return showNotice()" %>
+ </p>
+<% end %>
+
+<% if @author.errors.any? %>
+ <h2>The following errors prevented the author from saving:</h2>
+ <ul>
+   <% @author.errors.full_messages.each do |msg|%>
+     <li><%= msg %></li>
+   <% end %>
+ </ul>
+<% end %>
