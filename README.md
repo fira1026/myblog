@@ -35,6 +35,13 @@ This is my first time to build a blog by Rails, and this blog is for demo purpos
 5. 文章詳情中顯示所有關聯的評論
 6. 改由 Facebook 註冊登入
 
+### Deploy to Heroku
+
+1. heroku create
+2. git push heroku main:main
+3. heroku rake db:migrate
+4. heroku run rails db:fixtures:load
+
 ### References
 
 [Install Ruby 3.0 · macOS Big Sur or Catalina](https://mac.install.guide/ruby/index.html)
