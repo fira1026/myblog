@@ -1,4 +1,6 @@
 class AuthorsController < ApplicationController
+
+  before_action :set_author, only: [:edit, :update, :show]
   
   def index
     @authors = Author.all.order(id: :asc)
@@ -12,17 +14,16 @@ class AuthorsController < ApplicationController
     # render plain: params[:author].inspect
     @author = Author.new(author_params)
     if @author.save
-  	  flash[:notice] = "Account was successfully created"
-      redirect_to author_path(@author)
+  	  flash[:success] = "Welcome to the alpha blog #{@author.name}"
+      redirect_to posts_path
     else
   	  render action: 'new', alert: "Signup failed."
     end 
   end
 
   def update
-    @author = Author.find(params[:id])
     if @author.update(author_params)
-      flash[:notice] = "Account was successfully updated"
+      flash[:success] = "Account was successfully updated"
       redirect_to author_path(@author)
     else
       render 'edit', alert: "Account was not updated"
@@ -30,16 +31,18 @@ class AuthorsController < ApplicationController
   end
 
   def show
-    @author = Author.find(params[:id])
   end
 
   def edit
-    @author = Author.find(params[:id])
   end
 
   private
   def author_params
-    params.require(:author).permit(:name, :email)
+    params.require(:author).permit(:name, :email, :password)
+  end
+
+  def set_author
+    @author = Author.find(params[:id])
   end
 
 end

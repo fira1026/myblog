@@ -4,7 +4,7 @@
 <%= link_to 'Delete', post_path(@post),
   method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %> |
 <%= link_to "Back", posts_path, class: "btn btn-xs btn-success" %>
-<!-- <h4 class="center"><strong>Content:</strong></h4> -->
+
 <hr>
 <%= simple_format(@post.content) %>
 

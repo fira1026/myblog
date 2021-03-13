@@ -1,34 +1,60 @@
-
-
-<%= form_for @author do |f| %>
- <p>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
- </p>
- <p>
-  <%= f.label :email %><br>
-  <%= f.text_field :email %>
- </p>
- <p>
-<!--   <%= f.submit "Cancel", :onclick => "redirect()" %> -->
-<!--   <%= link_to "Back", authors_path %> -->
-  <%= f.submit %>
- </p>
+<% if @author.errors.any?  %>
+ <div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+   <div class="panel panel-danger">
+    <div class="panel-heading">
+     <h2 class="panel-title">
+      <%= pluralize(@author.errors.count, "error") %>
+      prohibited author from being saved:
+     </h2>
+     <div class="panel-body">
+      <ul>
+       <% @author.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+       <% end %>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
 <% end %>
 
-<% if @author.errors.any? %>
- <h2>The following errors prevented the author from saving:</h2>
- <ul>
- <% @author.errors.full_messages.each do |msg|%>
- <li><%= msg %></li>
- <% end %>
- </ul>
+<div class="row">
+ <div class="col-xs-12">
+  <%= form_for(@author, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :name %>
+   </div>
+   <div class="col-sm-8">
+    <%= f.text_field :name, class: "form-control", placeholder: "Enter name", autofocus: true %>
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :email %>
+   </div>
+   <div class="col-sm-8">
+    <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :password %>
+   </div>
+   <div class="col-sm-8">
+    <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+   </div>
+  </div>  
+  <div class="form-group">
+   <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit(@author.new_record?  ? "Sign up" : "Update account", class: 'btn btn-primary btn-large') %>
+   </div>
+  </div>
 <% end %>
-
-<script type="text/javascript" language="javascript">
-function redirect()
-{
-    window.location.href="authors.index";
-}
-</script>
-
+  <div class="col-xs-4 col-xs-offset-2">
+  [ <%= link_to 'Cancel request and Return to Post List', posts_path %> ]
+  </div> 
+ </div>
+</div>
