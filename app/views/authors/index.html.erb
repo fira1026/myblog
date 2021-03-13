@@ -1,0 +1,29 @@
+<h1>Author List</h1>
+<table align="left" style="width: 50%">
+ <colgroup>
+  <col span="1" style="width: 5%;">
+  <col span="1" style="width: 20%;">
+  <col span="1" style="width: 20%;">
+  <col span="1" style="width: 5%;">
+  <!-- <col span="1" style="width: 5%;"> -->
+ </colgroup>
+ <tbody>
+  <tr>
+    <td style="background-color: #777">No</td>
+    <td style="background-color: #aaa">Name</td>
+    <td style="background-color: #777">Email</td>
+    <td style="background-color: #aaa"></td>
+    <!-- <td style="background-color: #aaa"></td> -->
+  </tr>
+ </tbody>
+ <tr>
+ <% @authors.each do |author| %>
+ <tr>
+  <td><%= author.id %></td>
+  <td><%= author.name %></td>
+  <td><%= author.email %></td>
+  <td><%= link_to 'Show', author_path(author) %></td>
+  <!-- <td><%= link_to 'Edit', edit_author_path(author) %></td> -->
+ </tr>
+ <% end %>
+</table>
