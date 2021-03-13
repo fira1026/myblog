@@ -1,7 +1,10 @@
-<h1>Showing author detail</h1>
+<h1>About the Author</h1>
+<hr>
 <p>
- Name is: <%= @author.name %>
+ Name: <%= @author.name %>
 </p>
 <p>
- Email <%= @author.email %>
+ Email: <%= @author.email %>
 </p>
+<br>
+<%= link_to "All Authors", authors_path %>
