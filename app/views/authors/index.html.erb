@@ -1,29 +1,20 @@
-<h1>Author List</h1>
-<table align="left" style="width: 50%">
- <colgroup>
-  <col span="1" style="width: 5%;">
-  <col span="1" style="width: 20%;">
-  <col span="1" style="width: 20%;">
-  <col span="1" style="width: 5%;">
-  <!-- <col span="1" style="width: 5%;"> -->
- </colgroup>
- <tbody>
-  <tr>
-    <td style="background-color: #777">No</td>
-    <td style="background-color: #aaa">Name</td>
-    <td style="background-color: #777">Email</td>
-    <td style="background-color: #aaa"></td>
-    <!-- <td style="background-color: #aaa"></td> -->
-  </tr>
- </tbody>
- <tr>
+<h1 align="center">All Authors</h1>
+
+<div align="center">
+ <%= will_paginate %>
+</div>
+
+<div align="center">
  <% @authors.each do |author| %>
- <tr>
-  <td><%= author.id %></td>
-  <td><%= author.name %></td>
-  <td><%= author.email %></td>
-  <td><%= link_to 'Show', author_path(author) %></td>
-  <!-- <td><%= link_to 'Edit', edit_author_path(author) %></td> -->
- </tr>
+  <ul class="listing">
+   <div class="row">
+    <div class="well col-md-4 col-md-offset-4">
+     <li><%= link_to gravatar_for(author), author_path(author) %></li>
+     <li class="article-title"><%= link_to author.name, author_path(author) %></li>
+     <li><small><%= pluralize(author.posts.count, "post") if author.posts %></small></li>
+     <li><small><%= author.email %></small></li>
+    </div>
+   </div>
+  </ul>
  <% end %>
-</table>
+</div>

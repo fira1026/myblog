@@ -1,71 +1,7 @@
 <h1 align="center">Post List</h1>
-<!-- <br><br>
-<table align="left" style="width: 80%">
- <colgroup>
-  <col span="1" style="width: 2%;">
-  <col span="1" style="width: 15%;">
-  <col span="1" style="width: 10%;">
-  <col span="1" style="width: 10%;">
-  <col span="1" style="width: 2%;">
-  <col span="1" style="width: 2%;">
-  <col span="1" style="width: 2%;">
- </colgroup>
- <tbody>
-  <tr>
-    <td style="background-color: #777">No</td>
-    <td style="background-color: #aaa">Title</td>
-    <td style="background-color: #777">Author</td>
-    <td style="background-color: #aaa">Post Time</td>
-    <td style="background-color: #777"></td>
-    <td style="background-color: #777"></td>
-    <td style="background-color: #777"></td>
-  </tr>
- </tbody>
- <tr> -->
-<!--   <th>No</th>
-  <th>Title</th>
-  <th>Author</th> -->
-<!--  </tr>
- <% @posts.each do |post| %>
-  <tr>
-   <td><%= post.id %></td>
-   <td><%= post.title %></td>
-   <td><%= post.author.name %></td>
-   <td><%= post.created_at %></td>
-   <td><%= link_to 'Show', post_path(post), class: "btn btn-xs btn-success" %></td>
-   <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-xs btn-primary" %></td>
-   <td>
-     <%= link_to 'Delete', post_path(post), 
-     method: :delete, 
-     data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-danger" %>
-   </td>
-  </tr>
- <% end %>
-</table>
-<br><br> -->
 
-<% @posts.each do |post| %>
- <div class="row">
-  <div class="col-xs-8 col-xs-offset-2">
-   <div class="well well-lg">
-    <div class="article-title">
-     <%= link_to post.title, post_path(post) %>
-     posted by
-     <%= link_to post.author.name, author_path(post.author) %>
-    </div>
-    <div class="article-body">
-     <%= truncate(post.content, length: 100) %>
-    </div>
-    <div class="article-actions">
-     <%= link_to "Edit", edit_post_path(post), class: "btn btn-xs btn-primary" %>
-     <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure you want to delete this article?"}, class: "btn btn-xs btn-danger" %>
-     <div class="article-meta-details">
-      <small>
-       Created <%= time_ago_in_words(post.created_at) %> ago, last updated: <%= time_ago_in_words(post.updated_at) %> ago
-      </small>
-     </div>
-    </div>
-   </div>
-  </div>
- </div>
-<% end %>
+<div align="center">
+ <%= will_paginate %>
+</div>
+
+<%= render 'shared/post', obj: @posts %>
