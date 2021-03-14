@@ -1,9 +1,8 @@
 VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 class Author < ApplicationRecord
-  has_many :posts
-
   has_secure_password
+  has_many :posts, dependent: :destroy_async
 
   validates :name, presence: true, 
     uniqueness: { case_sensitive: false }, 
@@ -13,6 +12,5 @@ class Author < ApplicationRecord
     length: { maximum: 105 },
     uniqueness: { case_sensitive: false }, 
     format: { with: VALID_EMAIL_REGEX }
-    before_save { self.email = email.downcase }
-    
+    before_save { self.email = email.downcase } 
 end
