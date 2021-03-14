@@ -1,16 +1,30 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+a1:
   id: 1
-  body: This post is awesome
+  body: 還不錯
   post_id: 1
-
-two:
+a2:
   id: 2
-  body: I don't like this post
-  post_id: 2
-
-three:
+  body: 頭香
+  post_id: 1
+a3:
   id: 3
-  body: I don't like this post too
-  post_id: 3
+  body: 3樓出門檢到錢，5樓出門掉錢包
+  post_id: 1
+a4:
+  id: 4
+  body: 冒險蓋
+  post_id: 1
+a5:
+  id: 5
+  body: 三樓有病
+a6:
+  id: 6
+  body: 哈哈笑死我
+a7:
+  id: 7
+  body: 加油
+a8:
+  id: 8
+  body: 推
