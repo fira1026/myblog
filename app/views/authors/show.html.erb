@@ -4,9 +4,11 @@
   <%= gravatar_for @author, size: 100 %>
  </div>
 </div>
-<div align="center">
- <h4><%= link_to "Edit profile", edit_author_path(@author)%></h4>
-</div>
+<% if logged_in? && current_user.id == @author.id %>
+ <div align="center">
+  <h4><%= link_to "Edit profile", edit_author_path(@author)%></h4>
+ </div>
+<% end %>
 
 <%= render 'shared/post', obj: @author_posts %>
 

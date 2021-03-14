@@ -22,6 +22,7 @@ class AuthorsController < ApplicationController
   end
 
   def update
+
     if @author.update(author_params)
       flash[:success] = "Account was successfully updated"
       redirect_to posts_path
@@ -36,6 +37,15 @@ class AuthorsController < ApplicationController
   end
 
   def edit
+    if !logged_in?
+      flash[:danger] = "必須登入後才能進行此操作"
+      redirect_to login_path
+    else
+      if current_user.id != @author.id
+        flash[:danger] = "很抱歉，你沒有操作權限"
+        redirect_to authors_path
+      end
+    end
   end
 
   private

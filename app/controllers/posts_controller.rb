@@ -10,8 +10,7 @@ class PostsController < ApplicationController
   end
 
   def create
-
-    @post = Post.new(post_params)
+    @post = Post.new(post_params.merge(:author_id => current_user.id))
     if @post.save
   	  # flash[:success] = "Post was created"
       redirect_to post_path(@post)
@@ -37,7 +36,7 @@ class PostsController < ApplicationController
       flash[:danger] = "必須登入後才能進行此操作"
       redirect_to login_path
     else
-      if session[:user_id] != @post.author.id
+      if current_user.id != @post.author.id
         flash[:danger] = "很抱歉，你沒有操作權限"
         redirect_to post_path(@post)
       end
@@ -53,8 +52,9 @@ class PostsController < ApplicationController
       flash[:danger] = "必須登入後才能進行此操作"
       redirect_to login_path
     else
-      if session[:user_id] != @post.author.id
+      if current_user.id != @post.author.id
         flash[:danger] = "很抱歉，你沒有操作權限"
+        redirect_to post_path(@post)
       end
     end
 
@@ -65,7 +65,9 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content)
+    # Rails.logger.debug "=============================="
+    # Rails.logger.debug post_params.inspect
+    params.require(:post).permit(:title, :content, :author_id)
   end
 
   def set_post
