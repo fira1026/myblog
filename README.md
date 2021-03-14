@@ -34,9 +34,10 @@ This is my first time to build a blog by Rails, and this blog is for demo purpos
 4. 為文章寫評論 (可匿名，不需權限，建立後不可修改)
 5. 文章詳情中顯示所有關聯的評論
 
-### 待處理事項
+### Day 5
 
-1. 改由 Facebook 註冊登入
+1. 將原本客製化的註冊和身份驗証改為用 devise。花費相當長時間，原本的 Author model 打掉換成 User。
+1. 改由 Facebook 註冊登入。臉書因疫情暫停審核個人app的上線，所以打不過去，會一直出現 Completed 401 Unauthorized。此部份後續再看有無其他方法。目前此部份修改以 PR 方式呈現: https://github.com/fira1026/myblog/pull/2
 
 ### Deploy to Heroku
 
