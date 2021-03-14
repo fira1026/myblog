@@ -36,10 +36,10 @@
         <% if user_signed_in? %>
           <li><%= link_to current_user.email, users_path %></li>
           <li><%= link_to '修改帳號', edit_user_registration_path %></li>> 
-          <li><%= link_to "登出", destroy_user_session_path, method: :delete %></li>>
+          <li><%= link_to "登出", user_facebook_omniauth_authorize_path, method: :delete %></li>>
         <% else %>
-          <li><%= link_to "註冊", new_user_registration_path %></li>>
-          <li><%= link_to "登入", new_user_session_path %></li>>
+          <li><%= link_to "註冊", user_facebook_omniauth_authorize_path %></li>>
+          <li><%= link_to "登入", user_facebook_omniauth_authorize_path %></li>>
         <% end %>
         
 <!--         <li class="dropdown">

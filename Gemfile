@@ -34,8 +34,8 @@ gem 'bootstrap-will_paginate', '1.0.0'
 
 # For user authentication
 gem 'devise'
-# gem 'omniauth', '>= 1.0.0.pr2'
-# gem 'omniauth-facebook'
+gem "omniauth", "~> 1.9.1"
+gem 'omniauth-facebook'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
