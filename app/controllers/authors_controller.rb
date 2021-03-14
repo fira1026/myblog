@@ -13,6 +13,7 @@ class AuthorsController < ApplicationController
   def create
     @author = Author.new(author_params)
     if @author.save
+      session[:user_id] = @author.id
   	  flash[:success] = "Welcome to the alpha blog #{@author.name}"
       redirect_to posts_path
     else

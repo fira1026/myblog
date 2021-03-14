@@ -20,20 +20,23 @@ This is my first time to build a blog by Rails, and this blog is for demo purpos
 1. 建立 controllers/views: Author, Post, Comment
 2. 文章列表/文章詳情/作者列表/作者詳情
 3. 建立文章/修改文章/刪除文章 (尚末綁權限)
-4. Navigator bar
+4. 導航列 Navigator bar
 5. 修改作家個人資料 (尚未綁權限)
 6. 作家詳情/該作家的文章列表
 7. 註冊成為作家
 8. 完成列表分頁功能
 
+### Day 4
+
+1. 登入/登出功能，並加至導航列
+2. 文章權限控管
+
 ### 待處理事項
 
-1. 作家登入/登出
-2. 建立/修改文章 需綁定作家身份
-3. 只能修改自己的個人資料
-4. 為文章寫評論 (可匿名，不需權限，建立後不可修改)
-5. 文章詳情中顯示所有關聯的評論
-6. 改由 Facebook 註冊登入
+1. 只能修改自己的個人資料
+2. 為文章寫評論 (可匿名，不需權限，建立後不可修改)
+3. 文章詳情中顯示所有關聯的評論
+4. 改由 Facebook 註冊登入
 
 ### Deploy to Heroku
 

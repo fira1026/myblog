@@ -2,10 +2,15 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :show, :destroy]
 
   def new
+    if !logged_in?
+      flash[:danger] = "必須登入後才能進行此操作"
+      redirect_to login_path
+    end
     @post = Post.new
   end
 
   def create
+
     @post = Post.new(post_params)
     if @post.save
   	  # flash[:success] = "Post was created"
@@ -28,6 +33,15 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if !logged_in?
+      flash[:danger] = "必須登入後才能進行此操作"
+      redirect_to login_path
+    else
+      if session[:user_id] != @post.author.id
+        flash[:danger] = "很抱歉，你沒有操作權限"
+        redirect_to post_path(@post)
+      end
+    end
   end
 
   def index
@@ -35,6 +49,15 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    if !logged_in?
+      flash[:danger] = "必須登入後才能進行此操作"
+      redirect_to login_path
+    else
+      if session[:user_id] != @post.author.id
+        flash[:danger] = "很抱歉，你沒有操作權限"
+      end
+    end
+
     @post.destroy
     # flash[:success] = "Post was deleted"
     redirect_to posts_path
