@@ -1,0 +1,44 @@
+<h1 align="center">新增評論</h1>
+<br>
+<% if @comment.errors.any?  %>
+ <div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+   <div class="panel panel-danger">
+    <div class="panel-heading">
+     <h2 class="panel-title">
+      <%= pluralize(@comment.errors.count, "error") %>
+      prohibited comment from being saved:
+     </h2>
+     <div class="panel-body">
+      <ul>
+       <% @comment.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+       <% end %>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+<% end %>
+
+<div class="row">
+ <div class="col-xs-12">
+  <%= form_for(@comment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :body %>
+   </div>
+   <div class="col-sm-6">
+    <%= f.text_field :body, class: "form-control", placeholder: "Comment", autofocus: true %>
+   </div>
+  </div>
+  <%= f.hidden_field :post_id %>
+  <div class="form-group">
+   <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit class: 'btn btn-primary btn-large' %>
+   </div>
+  </div>
+<% end %>
+ </div>
+</div>

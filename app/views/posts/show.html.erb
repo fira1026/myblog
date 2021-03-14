@@ -1,4 +1,4 @@
-<h2 align="center">Title: <%= @post.title %></h2>
+<h2 align="center"><%= @post.title %></h2>
 <div class="well col-xs-8 col-xs-offset-2">
  <ul class="listing">
   <div class="row" align="center">
@@ -11,8 +11,8 @@
  </ul>
  </end>
 
- <h4 class="center description"><strong>內文:</strong></h4>
  <hr>
+ <h4 class="center description"><strong>內文:</strong></h4>
  <%= simple_format(@post.content) %>
  <div class="article-actions">
  <% if logged_in? && @post.author.id == current_user.id %>
@@ -20,9 +20,24 @@
    <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this article?"}, class: "btn btn-xs btn-danger" %>
  <% end %>
  <%= link_to "Back", posts_path, class: "btn btn-xs btn-success" %>
+ <%= link_to "Add Comment", new_comment_path(post_id: @post.id), class: "btn btn-xs btn-primary" %>
  </div>
  <br>
  <p>Posted at:
   <%= @post.created_at %>
  </p>
 </div>
+<br>
+
+<% @post.comments.order(created_at: :desc).each do |comment| %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg">
+        <div class="listing">
+          <p style="font-size:8px">訪客留言 <%= comment.created_at %></p>
+          <%= comment.body %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

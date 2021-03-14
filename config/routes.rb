@@ -14,4 +14,7 @@ resources :authors, except: [:new]
 
 # Posts routes
 resources :posts #, only: [:index, :show, :update, :destroy, :edit, :create]
+
+# Posts routes
+resources :comments
 end

@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :show, :destroy]
 
   def new
+    # @comment = Comment.new(post_id: params[:post_id])
     if !logged_in?
       flash[:danger] = "必須登入後才能進行此操作"
       redirect_to login_path
@@ -15,7 +16,7 @@ class PostsController < ApplicationController
   	  # flash[:success] = "Post was created"
       redirect_to post_path(@post)
     else
-  	  render action: 'new', alert: "Signup failed."
+  	  render action: 'new', alert: "Create failed."
     end 
   end
 

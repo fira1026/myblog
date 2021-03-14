@@ -30,13 +30,13 @@ This is my first time to build a blog by Rails, and this blog is for demo purpos
 
 1. 登入/登出功能，並加至導航列
 2. 文章權限控管
+3. 只能修改自己的個人資料
+4. 為文章寫評論 (可匿名，不需權限，建立後不可修改)
+5. 文章詳情中顯示所有關聯的評論
 
 ### 待處理事項
 
-1. 只能修改自己的個人資料
-2. 為文章寫評論 (可匿名，不需權限，建立後不可修改)
-3. 文章詳情中顯示所有關聯的評論
-4. 改由 Facebook 註冊登入
+1. 改由 Facebook 註冊登入
 
 ### Deploy to Heroku
 
