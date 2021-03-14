@@ -7,5 +7,4 @@ class CreateComments < ActiveRecord::Migration[6.1]
     end
     add_index :comments, :post_id, unique: true
   end
-  end
 end
