@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def new
     # @comment = Comment.new(post_id: params[:post_id])
-    if !logged_in?
+    if !user_signed_in?
       flash[:danger] = "必須登入後才能進行此操作"
       redirect_to login_path
     end
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params.merge(:author_id => current_user.id))
+    @post = Post.new(post_params.merge(:user_id => current_user.id))
     if @post.save
   	  # flash[:success] = "Post was created"
       redirect_to post_path(@post)
@@ -33,11 +33,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    if !logged_in?
+    if !user_signed_in?
       flash[:danger] = "必須登入後才能進行此操作"
       redirect_to login_path
     else
-      if current_user.id != @post.author.id
+      if current_user.id != @post.user.id
         flash[:danger] = "很抱歉，你沒有操作權限"
         redirect_to post_path(@post)
       end
@@ -49,11 +49,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if !logged_in?
+    if !user_signed_in?
       flash[:danger] = "必須登入後才能進行此操作"
       redirect_to login_path
     else
-      if current_user.id != @post.author.id
+      if current_user.id != @post.user.id
         flash[:danger] = "很抱歉，你沒有操作權限"
         redirect_to post_path(@post)
       end
@@ -68,7 +68,7 @@ class PostsController < ApplicationController
   def post_params
     # Rails.logger.debug "=============================="
     # Rails.logger.debug post_params.inspect
-    params.require(:post).permit(:title, :content, :author_id)
+    params.require(:post).permit(:title, :content, :user_id)
   end
 
   def set_post

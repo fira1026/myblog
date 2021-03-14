@@ -32,6 +32,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate', '3.3.0'
 gem 'bootstrap-will_paginate', '1.0.0'
 
+# For user authentication
+gem 'devise'
+# gem 'omniauth', '>= 1.0.0.pr2'
+# gem 'omniauth-facebook'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

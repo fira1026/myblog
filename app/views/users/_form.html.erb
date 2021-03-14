@@ -1,15 +1,15 @@
-<% if @author.errors.any?  %>
+<% if @user.errors.any?  %>
  <div class="row">
   <div class="col-xs-8 col-xs-offset-2">
    <div class="panel panel-danger">
     <div class="panel-heading">
      <h2 class="panel-title">
-      <%= pluralize(@author.errors.count, "error") %>
-      prohibited author from being saved:
+      <%= pluralize(@user.errors.count, "error") %>
+      prohibited user from being saved:
      </h2>
      <div class="panel-body">
       <ul>
-       <% @author.errors.full_messages.each do |msg|%>
+       <% @user.errors.full_messages.each do |msg|%>
         <li><%= msg %></li>
        <% end %>
       </ul>
@@ -22,7 +22,7 @@
 
 <div class="row">
  <div class="col-xs-12">
-  <%= form_for(@author, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+  <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
   <div class="form-group">
    <div class="control-label col-sm-2">
     <%= f.label :name %>
@@ -49,7 +49,7 @@
   </div>  
   <div class="form-group">
    <div class="col-sm-offset-2 col-sm-10">
-    <%= f.submit(@author.new_record?  ? "Sign up" : "Update account", class: 'btn btn-primary btn-large') %>
+    <%= f.submit(@user.new_record?  ? "Sign up" : "Update account", class: 'btn btn-primary btn-large') %>
    </div>
   </div>
 <% end %>
