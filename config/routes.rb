@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'pages/home'
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
   root 'pages#home'
   get 'about', to: 'pages#about'
   get 'signup', to: 'authors#new'
