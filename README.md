@@ -2,6 +2,11 @@
 
 This is my first time to build a blog by Rails, and this blog is for demo purpose.
 
+[vKala on Heroku](https://fast-ocean-18301.herokuapp.com/)
+PS: If don't want to register a new user, use this one: 
+usename: fira1026@gmail.com
+password: password
+
 
 ### Day 1
 
@@ -61,3 +66,5 @@ This is my first time to build a blog by Rails, and this blog is for demo purpos
 [為你自己學 Ruby on Rails (電子書)](https://railsbook.tw/)
 
 [Rails models cheatsheet](https://devhints.io/rails-models)
+
+[Implementing Facebook authentication with Devise for your Rails 6 app](https://dev.to/nkemjiks/implementing-facebook-authentication-with-devise-for-your-rails-6-app-1p3b)
